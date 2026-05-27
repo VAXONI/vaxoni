@@ -1,0 +1,58 @@
+{
+  "name": "@vaxoni/sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript/TypeScript SDK for the VAXONI PASS/HOLD/RED Decision API powered by Aether Core.",
+  "keywords": [
+    "vaxoni",
+    "aether",
+    "decision-api",
+    "pass-hold-red",
+    "governance",
+    "ai-governance",
+    "typescript",
+    "sdk"
+  ],
+  "homepage": "https://vaxoni.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VAXONI/vaxoni.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VAXONI/vaxoni/issues"
+  },
+  "license": "MIT",
+  "author": "VAXONI",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev:text": "tsx examples/vaxoni/analyze-text.ts",
+    "dev:json": "tsx examples/vaxoni/analyze-json.ts",
+    "dev_rapidapi:text": "tsx examples/rapidapi/analyze-text.ts",
+    "dev_rapidapi:json": "tsx examples/rapidapi/analyze-json.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
